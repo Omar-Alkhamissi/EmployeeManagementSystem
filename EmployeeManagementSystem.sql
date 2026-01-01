@@ -11,7 +11,6 @@ GO
 USE Project3;
 GO
 
--- 24f Initial Project3 Database script - ADD your solution to the END of this script for all the requirements of Project 3
 CREATE TABLE dbo.Departments (
     DepartmentID       INT IDENTITY PRIMARY KEY,
     DepartmentName NVARCHAR(50) NOT NULL,
@@ -79,9 +78,8 @@ BEGIN;
 END;
 GO
 
-DROP PROCEDURE InsertDepartment;
+-- DROP PROCEDURE InsertDepartment;
 
-/* REQUIREMENT 1*/
 CREATE OR ALTER PROCEDURE dbo.InsertDepartment
     @DepartmentName NVARCHAR(50),
     @DepartmentDesc NVARCHAR(100) = NULL
@@ -107,7 +105,6 @@ BEGIN
 END;
 GO
 
-/* REQUIREMENT 2*/
 EXEC dbo.InsertDepartment 'QA', 'Quality Assurance';
 EXEC dbo.InsertDepartment 'SysDev', 'Systems Development';
 EXEC dbo.InsertDepartment 'Infrastructure', 'Deployment and Production Support';
@@ -118,7 +115,6 @@ EXEC dbo.InsertDepartment 'DesignEngineering', 'Project Initiation/Design/Engine
 SELECT * FROM dbo.Departments;
 GO
 
-/* REQUIREMENT 3*/
 CREATE OR ALTER FUNCTION dbo.GetDepartmentID
     (@DepartmentName NVARCHAR(50))
 RETURNS INT
@@ -137,7 +133,6 @@ END;
 GO
 
 
-/* REQUIREMENT 4*/
 CREATE OR ALTER PROCEDURE dbo.InsertEmployee
     @DepartmentName NVARCHAR(50),
     @EmployeeFirstName NVARCHAR(50),
@@ -215,8 +210,8 @@ EXEC dbo.InsertEmployee
 
 SELECT * FROM dbo.Employees;
 SELECT * FROM dbo.Departments;
+GO
 
-/* REQUIREMENT 5*/
 CREATE OR ALTER FUNCTION dbo.GetEmployeesByCommission (@MinCommission MONEY)
 RETURNS TABLE
 AS
@@ -247,7 +242,6 @@ SELECT * FROM dbo.GetEmployeesByCommission(5000);
 -- Test with a commission value of 4000
 SELECT * FROM dbo.GetEmployeesByCommission(4000);
 
-/* REQUIREMENT 6*/
 SELECT 
     d.DepartmentName,
     e.FirstName,
@@ -267,8 +261,6 @@ INNER JOIN
 ORDER BY 
     d.DepartmentName, DepartmentRank;
 GO
-
-/* REQUIREMENT 7*/
 
 WITH EmployeeHierarchy AS (
     -- Anchor Member: Start with employees who have no manager (top-level managers)
