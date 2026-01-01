@@ -1,14 +1,14 @@
 use master;
 GO
-Alter database Project3  set single_user with rollback immediate;
+Alter database EmployeeManagement  set single_user with rollback immediate;
 GO
-DROP Database Project3;
+DROP Database EmployeeManagement;
 GO 
 
-CREATE DATABASE Project3;
+CREATE DATABASE EmployeeManagement;
 GO
 
-USE Project3;
+USE EmployeeManagement;
 GO
 
 CREATE TABLE dbo.Departments (
