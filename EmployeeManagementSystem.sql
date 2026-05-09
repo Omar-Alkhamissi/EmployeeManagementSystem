@@ -203,8 +203,8 @@ EXEC dbo.InsertEmployee
     @EmployeeLastName = 'Tolo', 
     @Salary = 43000, 
     @FileFolder = 'Adib Tolo', 
-    @ManagerFirstName = 'Omar', 
-    @ManagerLastName = 'Alkhamissi', 
+    @ManagerFirstName = 'Morgan', 
+    @ManagerLastName = 'Reed', 
     @CommissionBonus = 4000;
 
 
